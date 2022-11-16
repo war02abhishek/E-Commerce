@@ -24,7 +24,7 @@ import { positions, transitions, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import { AppProvider } from "../src/components/Layout/Header/context";
 const options = {
-  timeout: 500,
+  timeout: 3500,
   position: positions.BOTTOM_CENTER,
   transition: transitions.SCALE,
 };

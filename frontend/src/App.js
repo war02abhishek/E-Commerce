@@ -40,6 +40,8 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
 import ElementsLayout from "./ElementsLayout.js";
+import OrderSuccess from "./components/Cart/OrderSucess.js";
+import MyOrders from "./components/Order/MyOrder.js";
 
 function App() {
   console.log("App.js");
@@ -106,6 +108,8 @@ function App() {
             <Route path="/process/payment" element={<Payment />} />
           </Route>
         )}
+        <Route path="/success" element={<OrderSuccess />} />
+        <Route path="/orders" element={<MyOrders/>} />
 
         {/* <Route
           path="/Profile"

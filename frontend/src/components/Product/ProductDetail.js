@@ -37,10 +37,11 @@ const ProductDetail = () => {
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
-
+  
   const { success, error: reviewError } = useSelector(
     (state) => state.newReviewReducer
   );
+  // const userl= JSON.parse(localStorage.getItem('user'))
 
   useEffect(() => {
     if (error) {
@@ -57,10 +58,9 @@ const ProductDetail = () => {
     precision: 0.5,
   };
   const form = {
-    rating:'',
-    id:'',
-    comment:'',
-
+    rating: "",
+    productId: "",
+    comment: "",
   };
 
   console.log(product.reviews);
@@ -70,6 +70,7 @@ const ProductDetail = () => {
   const [formm,setFormm]=useState(form);
   const [ratings, setRatings] = useState(0);
   const [comments, setComments] = useState("");
+  const [prdid,setPrdid]=useState(id);
 
   const increaseQuantity = () => {
     if (product.Stock <= quantity) {
@@ -98,8 +99,15 @@ const ProductDetail = () => {
 
   const reviewSubmitHandler = () => {
     console.log('form');
-  
-    setFormm({...formm,["rating"]:ratings,["comment"]:comments,["id"]:id});
+    // console.log(userl);
+    // console.log(userl._id);
+
+    setFormm({
+      ...formm,
+      ["rating"]: ratings,
+      ["comment"]: comments,
+      ["productId"]: prdid,
+    });
     dispatch(newReview(formm));
 
     setOpen(false);
