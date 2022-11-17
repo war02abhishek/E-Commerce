@@ -42,6 +42,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import ElementsLayout from "./ElementsLayout.js";
 import OrderSuccess from "./components/Cart/OrderSucess.js";
 import MyOrders from "./components/Order/MyOrder.js";
+import OrderDetails from "./components/Order/OrderDetails.js";
 
 function App() {
   console.log("App.js");
@@ -109,7 +110,8 @@ function App() {
           </Route>
         )}
         <Route path="/success" element={<OrderSuccess />} />
-        <Route path="/orders" element={<MyOrders/>} />
+        <Route path="/orders" element={<MyOrders />} />
+        <Route path="/order/:id" element={<OrderDetails/>} />
 
         {/* <Route
           path="/Profile"

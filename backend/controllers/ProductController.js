@@ -138,6 +138,8 @@ export const getProduct = async (req, res, next) => {
 export const createProductReview = async (req, res, next) => {
   try {
     console.log(req.body);
+    console.log(req.user._id.toString());
+   
     const { rating, comment, productId } = req.body;
 
     const review = {
@@ -152,13 +154,16 @@ export const createProductReview = async (req, res, next) => {
    const product = await Product.findById(productId);
 console.log(product);
     const isReviewed = product.reviews.find(
-      (rev) => rev.user?.toString() === req.user?._id.toString()  //yaha dikkkat
+      (rev) => rev._id.toString() === req.user._id.toString()
+       
+      //yaha dikkkat
     );
 
     if (isReviewed) {
       //iterate all reviews and find by user id
       product.reviews.forEach((rev) => {
-        if (rev.user?.toString() === req.user._id?.toString()) {
+        console.log(rev.user.toString());
+        if (rev.user.toString() === req.body.user._id.toString()) {
           rev.rating = Number(rating);
           rev.comment = comment;
         }
