@@ -64,11 +64,29 @@ export const login = (email, password,navigate) =>async(dispatch) =>{
 export const register = (userData,navigate) => async (dispatch) => {
   try {
     dispatch({ type: REGISTER_USER_REQUEST });
-    // console.log(userData);
+    console.log(userData);
     // const config = { headers: { "Content-type": "multipart/form-data " } };
     const { data } = await axios.post(`/api/v1/register`, userData);
+    console.log(data);
    await dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
-    // navigate("/Profile");
+    navigate("/Profile");
+  } catch (error) {
+    dispatch({
+      type: REGISTER_USER_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+//goole login
+export const googlelogin = (userData, navigate) => async (dispatch) => {
+  try {
+    dispatch({ type: REGISTER_USER_REQUEST });
+    console.log(userData);
+    // const config = { headers: { "Content-type": "multipart/form-data " } };
+    const { data } = await axios.post(`/api/v1/googlelogin`, userData);
+    console.log(data);
+    await dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
+    navigate("/");
   } catch (error) {
     dispatch({
       type: REGISTER_USER_FAIL,

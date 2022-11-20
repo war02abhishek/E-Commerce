@@ -1,6 +1,7 @@
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
+  GOOGLE_LOGIN_SUCCESS,
   LOGIN_FAIL,
   REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
@@ -36,16 +37,30 @@ import {
   USER_DETAILS_SUCCESS,
   USER_DETAILS_FAIL,
   CLEAR_ERRORS,
+  LOADING_SUCESS,
+  LOADING,
 } from "../constants/userConstant";
 
 export const userReducer = (state = { user: {} }, action) => {
   switch (action.type) {
+  
     case LOGIN_REQUEST:
     case REGISTER_USER_REQUEST:
     case LOAD_USER_REQUEST:
       return {
         loading: true,
         isAuthenticated: false,
+      };
+
+    case GOOGLE_LOGIN_SUCCESS:
+      console.log(...action.payload);
+      localStorage.setItem("user", action.payload);
+      console.log(...action.payload);
+      return {
+        ...state,
+        loading: false,
+        isAuthenticated: true,
+        user: action.payload,
       };
 
     case LOGIN_SUCCESS:
@@ -113,8 +128,6 @@ export const userReducer = (state = { user: {} }, action) => {
     default:
       return state;
   }
-
-  
 };
 
 export const profileReducer = (state = {}, action) => {
@@ -161,7 +174,7 @@ export const profileReducer = (state = {}, action) => {
       return {
         ...state,
         isUpdated: false,
-        isAuthenticated:true,
+        isAuthenticated: true,
       };
 
     case DELETE_USER_RESET:
@@ -178,4 +191,4 @@ export const profileReducer = (state = {}, action) => {
     default:
       return state;
   }
-}
+};

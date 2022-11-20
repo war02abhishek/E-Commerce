@@ -14,12 +14,23 @@ import {
   NEW_REVIEW_FAIL,
 } from "../constants/productConstant";
 
-
+import {
+  LOADING ,LOADING_SUCESS
+} from "../constants/userConstant"
 
 
 
 export const productsReducer = (state = { products: [] }, action) => {
   switch (action.type) {
+    case LOADING:
+      return {
+        loading: true,
+      };
+    case LOADING_SUCESS:
+      return {
+        loading: false,
+      };
+
     case ALL_PRODUCT_REQUEST:
       return {
         loading: true,

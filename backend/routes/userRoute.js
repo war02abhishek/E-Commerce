@@ -2,6 +2,7 @@ import express from 'express';
 import {
   registerUser,
   loginUser,
+  googleloginUser,
   logoutUser,
   forgotPassword,
   updatePassword,
@@ -16,6 +17,7 @@ import { isAuthenticatedUser, AuthenticatedRole } from "../middleware/auth.js";
 const router = express.Router();
 
 router.post("/register",registerUser);
+router.post("/googlelogin", googleloginUser);
 
 router.post("/login", loginUser);
 router.post("/password/forgot",forgotPassword);

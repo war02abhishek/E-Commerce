@@ -43,6 +43,7 @@ import ElementsLayout from "./ElementsLayout.js";
 import OrderSuccess from "./components/Cart/OrderSucess.js";
 import MyOrders from "./components/Order/MyOrder.js";
 import OrderDetails from "./components/Order/OrderDetails.js";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
   console.log("App.js");
@@ -79,54 +80,62 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <Header />
+    <GoogleOAuthProvider
+      clientId={
+        "722271786835-ic9jcohlh11b90qc4h11mhpktv23klb1.apps.googleusercontent.com"
+      }
+    >
+      <Router>
+        <Header />
 
-      <SideNav />
-      {isAuthenticated && <UserOptions user={user} />}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/Products" element={<Products />} />
-        <Route path="/Products/search" element={<Products />} />
-        <Route path="/Search" element={<Search />} />
-        <Route path="/Login" element={<LoginSignUp />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Cart" element={<Cart />} />
-        {/* <Route element={<ProtectedRoute />}> */}
-        {/* <Route path="/Profile" element={<Profile />} /> */}
-        <Route path="/Profile" element={<Profile />} />
-        <Route path="/login/shipping" element={<Shipping />} />
-        <Route path="/order/confirm" element={<ConfirmOrder />} />
+        <SideNav />
+        {isAuthenticated && <UserOptions user={user} />}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/Products" element={<Products />} />
+          <Route path="/Products/search" element={<Products />} />
+          <Route path="/Search" element={<Search />} />
+          <Route path="/Login" element={<LoginSignUp />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Cart" element={<Cart />} />
+          {/* <Route element={<ProtectedRoute />}> */}
+          {/* <Route path="/Profile" element={<Profile />} /> */}
+          <Route path="/Profile" element={<Profile />} />
+          <Route path="/login/shipping" element={<Shipping />} />
+          <Route path="/order/confirm" element={<ConfirmOrder />} />
 
-        {/* <Route path="/process/payment" element={<Payment />} /> */}
-        {/* <Elements stripe={loadStripe}>
+          {/* <Route path="/process/payment" element={<Payment />} /> */}
+          {/* <Elements stripe={loadStripe}>
           <Route path="/process/payment" element={<Payment />} />
         </Elements> */}
 
-        {stripeApiKey && (
-          <Route element={<ElementsLayout stripe={loadStripe(stripeApiKey)} />}>
-            <Route path="/process/payment" element={<Payment />} />
-          </Route>
-        )}
-        <Route path="/success" element={<OrderSuccess />} />
-        <Route path="/orders" element={<MyOrders />} />
-        <Route path="/order/:id" element={<OrderDetails/>} />
+          {stripeApiKey && (
+            <Route
+              element={<ElementsLayout stripe={loadStripe(stripeApiKey)} />}
+            >
+              <Route path="/process/payment" element={<Payment />} />
+            </Route>
+          )}
+          <Route path="/success" element={<OrderSuccess />} />
+          <Route path="/orders" element={<MyOrders />} />
+          <Route path="/order/:id" element={<OrderDetails />} />
 
-        {/* <Route
+          {/* <Route
           path="/Profile"
           element={<ProtectedRoute component={<Profile />} />}
         ></Route> */}
-        {/* </Route> */}
+          {/* </Route> */}
 
-        {/* <ProtectedRoute path="/Profile" element={<Profile />} /> */}
-        <Route path="/me/update" element={<UpdateProfile />} />
-        {/* <Route path="/password/update" element={<ChangePass />} />
+          {/* <ProtectedRoute path="/Profile" element={<Profile />} /> */}
+          <Route path="/me/update" element={<UpdateProfile />} />
+          {/* <Route path="/password/update" element={<ChangePass />} />
       <Route path="/login?redirect=shipping" element={<ChangePass />} /> */}
-      </Routes>
+        </Routes>
 
-      <Footer />
-    </Router>
+        <Footer />
+      </Router>
+     </GoogleOAuthProvider>
   );
 }
 

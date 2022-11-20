@@ -23,6 +23,7 @@ import VpnKeyIcon from "@mui/icons-material/VpnKey";
 
 import { createOrder, clearErrors } from "../../actions/orderAction";
 
+
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const Payment = () => {
   const payBtn = useRef(null);
 
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
+ 
   const { user } = useSelector((state) => state.userReducer);
   const { error } = useSelector((state) => state.newOrder);
 const userl = JSON.parse(localStorage.getItem("user"));
@@ -59,12 +61,14 @@ const userl = JSON.parse(localStorage.getItem("user"));
 
 
   const submitHandler = async (e) => {
+    console.log(payBtn.current.disabled);
+    payBtn.current.setAttribute("disabled", true); //will disable button as soon as we submit it
 
+  
     e.preventDefault();
-    payBtn.current.disabled = true;//will disable button as soon as we submit it
+ 
 
     try {
-
       const config = {
         headers: {
           "Content-Type": "application/json",
@@ -80,7 +84,7 @@ const userl = JSON.parse(localStorage.getItem("user"));
       const client_secret = data.client_secret;
 
       //agar enmaese koi bhi nahi hai to abhi se return kardo
-      console.log('payment')
+      console.log("payment");
       if (!stripe || !elements) return;
       console.log("payment1");
 
@@ -100,7 +104,7 @@ const userl = JSON.parse(localStorage.getItem("user"));
           },
         },
       });
-console.log("payment2");
+      console.log("payment2");
       if (result.error) {
         console.log(result.error);
         payBtn.current.disabled = false;
@@ -112,23 +116,21 @@ console.log("payment2");
             id: result.paymentIntent.id,
             status: result.paymentIntent.status,
           };
-
-          dispatch(createOrder(order));
-
-          navigate("/success");
+   navigate("/success");
+ dispatch(createOrder(order));
+ 
+ 
+         alert.success("Payment Succesfull");
+      
+         
         } else {
           alert.error("There's some issue while processing payment ");
         }
       }
-
     } catch (error) {
       payBtn.current.disabled = false;
     }
-
-
-
-
-  }
+  };
 
 
 

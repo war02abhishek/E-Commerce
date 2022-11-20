@@ -42,6 +42,39 @@ console.log(req.body);
   }
 };
 
+export const googleloginUser = async (req, res, next) => {
+  try {
+    // const myCloud= await cloudinary.v2.uploader.upload(req.body.avatar,{
+    //   folder: "avatars",
+    //   width:150,
+    //   crop:"scale",
+    // });
+    const { email, password } = req.body;
+
+       const user = await User.findOne({ email }).select("+password");
+       if (!user) {
+         const { firstName, lastName, avatar } = req.body;
+         console.log(req.body);
+         const user = await User.create({
+           firstName,
+           lastName,
+           email,
+           password,
+           avatar,
+          
+         });
+         //requesting database to create
+       }
+
+    sendToken(user, 200, res);
+
+
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+
 //LOGIN USER
 export const loginUser = async (req, res, next) => {
   try {
