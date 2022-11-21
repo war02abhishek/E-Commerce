@@ -44,6 +44,8 @@ import OrderSuccess from "./components/Cart/OrderSucess.js";
 import MyOrders from "./components/Order/MyOrder.js";
 import OrderDetails from "./components/Order/OrderDetails.js";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import Dashboard from "./components/Admin/Dashboard.js";
+import UsersList from "./components/Admin/UserList.js";
 
 function App() {
   console.log("App.js");
@@ -131,11 +133,13 @@ function App() {
           <Route path="/me/update" element={<UpdateProfile />} />
           {/* <Route path="/password/update" element={<ChangePass />} />
       <Route path="/login?redirect=shipping" element={<ChangePass />} /> */}
+          <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="/admin/users" element={<UsersList/>} /> */}
         </Routes>
 
         <Footer />
       </Router>
-     </GoogleOAuthProvider>
+    </GoogleOAuthProvider>
   );
 }
 

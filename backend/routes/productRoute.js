@@ -9,6 +9,7 @@ import {
   createProductReview,
   getProductReviews,
   deleteProductReview,
+  getAdminProducts
 } from "../controllers/ProductController.js";
 import { isAuthenticatedUser, AuthenticatedRole } from "../middleware/auth.js";
 
@@ -19,6 +20,12 @@ const router = express.Router();
 router.get(
   "/products",
   getAllProducts
+);
+router.get(
+  "/admin/products",
+  isAuthenticatedUser,
+  AuthenticatedRole("admin"),
+  getAdminProducts
 );
 
 router.post(

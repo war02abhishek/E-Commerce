@@ -9,9 +9,11 @@ import {
   PRODUCT_DETAIL_FAILURE,
   NEW_REVIEW_REQUEST,
   NEW_REVIEW_SUCCESS,
- 
   NEW_REVIEW_RESET,
   NEW_REVIEW_FAIL,
+  ADMIN_PRODUCT_SUCCESS,
+  ADMIN_PRODUCT_REQUEST,
+  ADMIN_PRODUCT_FAIL,
 } from "../constants/productConstant";
 
 import {
@@ -22,16 +24,8 @@ import {
 
 export const productsReducer = (state = { products: [] }, action) => {
   switch (action.type) {
-    case LOADING:
-      return {
-        loading: true,
-      };
-    case LOADING_SUCESS:
-      return {
-        loading: false,
-      };
-
     case ALL_PRODUCT_REQUEST:
+    case ADMIN_PRODUCT_REQUEST:
       return {
         loading: true,
         products: [],
@@ -45,8 +39,14 @@ export const productsReducer = (state = { products: [] }, action) => {
         resultPerPage: action.payload.resultPerPage,
         filteredProductsCount: action.payload.filteredProductsCount,
       };
+    case ADMIN_PRODUCT_SUCCESS:
+      return {
+        loading: false,
+        products: action.payload,
+      };
 
     case ALL_PRODUCT_FAILURE:
+      case ADMIN_PRODUCT_FAIL:
       return {
         loading: false,
         error: action.payload,
@@ -121,3 +121,4 @@ export const newReviewReducer = (state = {}, action) => {
       return state;
   }
 };
+
