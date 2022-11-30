@@ -119,7 +119,6 @@ const Dashboard = () => {
                   navigate("/admin/products");
                 }}
               >
-                Product
                 {counterOn && (
                   <CountUp
                     start={0}
@@ -128,7 +127,7 @@ const Dashboard = () => {
                     delay={0}
                   />
                 )}
-                +
+                 Product
               </span>
               <span
                 className="span1"
@@ -136,7 +135,6 @@ const Dashboard = () => {
                   navigate("/admin/orders");
                 }}
               >
-                Orders
                 {counterOn && (
                   <CountUp
                     start={0}
@@ -145,7 +143,7 @@ const Dashboard = () => {
                     delay={0}
                   />
                 )}
-                +
+                Orders
               </span>
               <span
                 className="span1"
@@ -153,7 +151,6 @@ const Dashboard = () => {
                   navigate("/admin/users");
                 }}
               >
-                Users
                 {counterOn && (
                   <CountUp
                     start={0}
@@ -162,7 +159,7 @@ const Dashboard = () => {
                     delay={0}
                   />
                 )}
-                +
+                 Users
               </span>
             </ScrollTrigger>
           </div>

@@ -15,12 +15,14 @@ const Footer = () => {
       </div>
       <div className="midFooter">
         <h1>Magento</h1>
+        <div></div>
         <p>High Quality is our first priority</p>
 
         <p>Copyrights {year} &copy; Abhishek Wanve</p>
       </div>
       <div className="rightFooter">
         <h4>Follow Us</h4>
+        {/* <div></div> */}
         <a href="https://www.instagram.com/war_abhishek/">Instagram</a>
         <a href="https://www.youtube.com/channel/UCfR-e7BP8o3tnpoW-9lbH-Q/featured">
           Youtube

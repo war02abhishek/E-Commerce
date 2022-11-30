@@ -32,8 +32,8 @@
 }
 
 .aboutSectionContainer > h1 {
-  font: 400 3vmax "Roboto";
-  color: tomato;
+  font: 500 3vmax "Roboto";
+  color: rgb(79, 78, 50);
   margin: 2vmax;
 }
 

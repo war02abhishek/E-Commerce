@@ -46,18 +46,23 @@
 
 .paymentFormBtn {
   border: none;
-  background-color: tomato;
-  color: white;
-  font: 300 0.9vmax "Roboto";
-  width: 100%;
+  background-color: #f3b925;
+  color: rgb(0, 0, 0);
+  font: 400 0.9vmax "Roboto";
+  
+  width: 60%;
+  height:2.5rem;
   padding: 0.8vmax;
+  margin-left: 3.3rem;
+  margin-top: 2rem;
   cursor: pointer;
   transition: all 0.5s;
   outline: none;
 }
 
 .paymentFormBtn:hover {
-  background-color: rgb(179, 66, 46);
+  background-color: rgb(216, 228, 0);
+  border-radius: 10%;
 }
 
 @media screen and (max-width: 600px) {

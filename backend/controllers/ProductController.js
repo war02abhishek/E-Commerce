@@ -14,6 +14,7 @@ export const createProduct = async (req, res, next) => {
 
   try {
 
+    console.log(req.body);
     req.body.user = req.user.id;
     const product = await Product.create(req.body);//requesting database to create 
 

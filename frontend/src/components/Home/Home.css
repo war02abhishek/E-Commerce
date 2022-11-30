@@ -4,13 +4,15 @@
 
     /* https://madelastonlineshopping.files.wordpress.com/2015/02/woman-online-shopping.jpg
      */
-  background-image: url("https://madelastonlineshopping.files.wordpress.com/2015/02/woman-online-shopping.jpg");
+     background-image: linear-gradient(rgba(0, 0, 0, 0.027),rgba(0, 0, 0, 0.5)) , url("https://wallpaperaccess.com/full/2593042.jpg");
+
+   /* background-image: url("https://madelastonlineshopping.files.wordpress.com/2015/02/woman-online-shopping.jpg");  */
   background-size: cover;
-  background-position: center;
-  /* background-repeat: no-repeat; */
+  background-position: center; 
+  background-repeat: no-repeat;
   height: 55vmax;
-  display: flex;
-  flex-direction: column;
+   display: flex; 
+   flex-direction: column;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -30,7 +32,7 @@
 }
 
 .banner > a > button {
-  margin-bottom: 5vmax;
+  margin-bottom: 1vmax;
   cursor: pointer;
   background-color: white;
   border: 1px solid white;
@@ -69,7 +71,7 @@
   width: 20vmax;
   padding: 1vmax;
   margin: 5vmax auto;
-  color: rgb(0, 0, 0, 0.7);
+  
 }
 
 .container {
@@ -79,6 +81,7 @@
   flex-wrap: wrap;
   justify-content: center;
   max-width: 100%;
+
 }
 
 .productCard {
@@ -87,13 +90,17 @@
   flex-direction: column;
   text-decoration: none;
   color: rgb(48, 48, 48);
+  background-color: #f1f1f1;
   margin: 2vmax;
   transition: all 0.5s;
   padding-bottom: 0.5vmax;
+   background-color: rgba(55, 62, 62, 0.00) 50%;
 }
 
 .productCard > img {
+  height: 17vmax;
   width: 14vmax;
+
 }
 
 .productCard > div {
@@ -101,6 +108,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+ 
 }
 
 .productCardSpan {
@@ -146,8 +154,4 @@
     margin: 0 0.5vmax;
     font: 300 1vmax "Roboto";
   }
-}
-.Scroll:hover{
-  scale: 1.15;
-  transition: 0.5s;
 }

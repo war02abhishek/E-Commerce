@@ -16,7 +16,11 @@ const SideNav = () => {
     <div className={`${isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}`}>
       <div className="sidebar-header">
         <Link to="/">
-          <img src={logo} className="logo" alt="coding addict" />
+          <img
+            src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/black-and-yellow-logo-design-template-753d0594c51b7e8417a7a94453d69182_screen.jpg?ts=1585932268"
+            className="logo"
+            alt="coding addict"
+          />
         </Link>
         <button className="close-btn" onClick={closeSidebar}>
           <FaTimes />

@@ -23,8 +23,7 @@ footer {
 .leftFooter > p {
   text-align: center;
   font-size: 1.2vmax;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family:"ABEEZEE", sans-serif;
 }
 
 .leftFooter > img {
@@ -40,10 +39,22 @@ footer {
 }
 
 .midFooter > h1 {
-  font-size: 4vmax;
-  font-family: "Roboto";
-  color: #34eb62;
+  font-size: 3vmax;
+  font-family: "Belleza", sans-serif;
+ 
 }
+.midFooter >div{
+
+  width: 30%;
+  height: 0.12rem;
+  margin-left: 16rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 0.3rem;
+
+  background-color: yellow;
+}
+
 
 .midFooter > p {
   max-width: 60%;
@@ -58,11 +69,19 @@ footer {
   flex-direction: column;
   align-items: center;
 }
+.rightFooter >div{
+  
+  width: 40%;
+  height: 0.12rem;
+  margin-left: 0.5rem;
+  margin-top: 0.01rem;
 
+  background-color: yellow;
+}
 .rightFooter > h4 {
   font-family: "Roboto";
   font-size: 1.4vmax;
-  text-decoration: underline;
+ 
 }
 
 .rightFooter > a {
@@ -75,7 +94,7 @@ footer {
 }
 
 .rightFooter > a:hover {
-  color: #34eb62;
+  color:#fdc435;
 }
 
 @media screen and (max-width: 600px) {
@@ -92,9 +111,40 @@ footer {
     font-size: 1.2vmax;
   }
   .midFooter > h1 {
-    font-size: 3.5vmax;
+    font-size: 2.5vmax;
   }
   .midFooter > p {
     font-size: 1.2vmax;
   }
+}
+@media screen and (max-width:976px){
+  .midFooter >div{
+    width: 40%;
+    margin-left: 9rem;
+}
+.rightFooter >div{ 
+  margin-left: 0.5rem;
+  margin-top: 0.01rem;
+}
+}
+@media screen and (max-width:576px){
+  .midFooter >div{
+    width: 50%;
+    margin-left: 3.5rem;
+}
+
+.rightFooter >div{ 
+  margin-left: 0.5rem;
+  margin-top: 0.01rem;
+}
+}
+@media screen and (max-width:376px){
+  .midFooter >div{
+    width: 50%;
+    margin-left: 3rem;
+}
+.rightFooter >div{ 
+  margin-left: 0.5rem;
+  margin-top: 0.1rem;
+}
 }

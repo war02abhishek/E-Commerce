@@ -37,9 +37,10 @@
 
 .profileContainer > div:first-child > a {
   border: none;
-  background-color: tomato;
+  background-color: #f1f1f1;
   font: 400 1vmax "Roboto";
-  color: white;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
   text-decoration: none;
   padding: 0.5vmax;
   width: 40%;
@@ -78,9 +79,10 @@
 
 .profileContainer > div:last-child > div:last-child > a {
   border: none;
-  background-color: rgb(68, 68, 68);
-  font: 400 1vmax "Roboto";
-  color: white;
+  /* background-color: rgb(68, 68, 68); */
+  background-color: #f1f1f1;
+  font: 600 1vmax "Roboto";
+  color: rgb(11, 6, 6);
   text-decoration: none;
   padding: 0.5vmax;
   text-align: center;
@@ -89,7 +91,7 @@
 }
 
 .profileContainer > div:last-child > div:last-child > a:hover {
-  background-color: rgb(31, 31, 31);
+   background-color: rgb(204, 78, 56);
 }
 
 @media screen and (max-width: 800px) {

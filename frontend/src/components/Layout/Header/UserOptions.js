@@ -27,7 +27,7 @@ const UserOptions = ({ user }) => {
     {
       icon: (
         <ShoppingCartIcon
-          style={{ color: cartItems.length > 0 ? "tomato" : "unset" }}
+          style={{ color: cartItems.length > 0 ? "#f3b925" : "unset" }}
         />
       ),
       name: `Cart(${cartItems.length})`,
@@ -47,7 +47,7 @@ const UserOptions = ({ user }) => {
     });
   }
   function dashboard() {
-    navigate("./admin/dashboard");
+    navigate("./dashboard");
   }
   function orders() {
     navigate("/orders");

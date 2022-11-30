@@ -12,6 +12,7 @@
   display: flex;
   flex-wrap: wrap;
   padding: 0 5vmax;
+  margin-left: 2rem;
   justify-content: center;
   min-height: 30vh;
 }
@@ -70,7 +71,7 @@
   width: 10vmax;
   position: absolute;
   top: 10vmax;
-  left: 4vmax;
+  left: 1.5vmax;
 }
 
 .categoryBox {
@@ -92,13 +93,16 @@
 .filterBox > fieldset {
   border: 1px solid rgba(0, 0, 0, 0.329);
 }
-
+.filterBox hr{
+  display: flex;
+  flex-direction: column;
+}
 
 
 @media screen and (max-width: 800px) {
   .filterBox {
-    width: 20vmax;
-    position: static;
+    width: 8vmax;
+    /* position: static; */
     margin: auto;
   }
 
@@ -109,3 +113,4 @@
     font: 400 1.8vmax "Roboto";
   }
 }
+

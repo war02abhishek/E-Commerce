@@ -12,6 +12,8 @@ import MetaData from "../Layout/MetaData";
 import { useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
+import Checkbox from "@mui/material/Checkbox";
+
 const categories = [
   "Laptop",
   "Mobile",
@@ -29,6 +31,22 @@ const categories = [
 
 const Products = () => {
   const dispatch = useDispatch();
+  const [checked, setChecked] = useState(false);
+  const [state, setState] = React.useState({
+    Laptop: false,
+    Mobile: false,
+    Tablet: false,
+    TV: false,
+    Camera: false,
+    Speaker: false,
+    Headphone: false,
+    Attire: false,
+    Watch: false,
+    Other: false,
+    AC: false,
+    Refrigerator: false,
+  });
+
   function useQuery() {
     return new URLSearchParams(useLocation().search); //this allow us to use simply as a Hook
   }
@@ -43,8 +61,8 @@ const Products = () => {
   const [category, setCategory] = useState("");
 
   const [ratings, setRatings] = useState(0);
-   const searchQuery = query.get("searchQuery");
-console.log(searchQuery);
+  const searchQuery = query.get("searchQuery");
+  console.log(searchQuery);
   const {
     products,
     loading,
@@ -56,13 +74,21 @@ console.log(searchQuery);
 
   // const keyword = re;
   // console.log(keyword);
-
+  const handleChangeC = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.checked,
+    });
+  };
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
   };
 
   const priceHandler = (event, newPrice) => {
     setPrice(newPrice);
+  };
+  const handleChange = (category) => {
+    setCategory(category);
   };
 
   useEffect(() => {
@@ -71,12 +97,36 @@ console.log(searchQuery);
       dispatch(clearErrors());
     }
     console.log(ratings);
-    dispatch(getProduct(searchQuery,currentPage, price, category, ratings));
-  }, [dispatch,searchQuery,currentPage, price, category, ratings, alert, error]);
+    dispatch(getProduct(searchQuery, currentPage, price, category, ratings));
+  }, [
+    dispatch,
+    searchQuery,
+    currentPage,
+    price,
+    category,
+    ratings,
+    alert,
+    error,
+  ]);
 
   let count = filteredProductsCount;
   console.log(count);
   console.log(resultPerPage);
+
+  const {
+    Laptop,
+    Mobile,
+    Tablet,
+    TV,
+    Camera,
+    Speaker,
+    Headphone,
+    Attire,
+    Watch,
+    Other,
+    AC,
+    Refrigerator,
+  } = state;
 
   return (
     <Fragment>
@@ -86,6 +136,7 @@ console.log(searchQuery);
         <Fragment>
           <MetaData title="PRODUCTS--SHOPSTUDIO" />
           <h2 className="productsHeading">Products</h2>
+
           <div className="products">
             {products &&
               products.map((product) => (
@@ -95,6 +146,7 @@ console.log(searchQuery);
 
           <div className="filterBox">
             <Typography>Price</Typography>
+            <hr className="ProductLine" />
             <Slider
               value={price}
               onChange={priceHandler}
@@ -109,8 +161,11 @@ console.log(searchQuery);
                 <li
                   className="category-link"
                   key={category}
-                  onClick={() => setCategory(category)}
+                  onClick={() => {
+                    setCategory(category);
+                  }}
                 >
+                  <Checkbox onChange={handleChangeC} checked={state.category} />
                   {category}
                 </li>
               ))}

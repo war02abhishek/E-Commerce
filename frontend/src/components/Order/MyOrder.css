@@ -42,12 +42,12 @@
 }
 
 .MuiDataGrid-columnHeader {
-  background-color: tomato;
+  background-color:rgb(250, 183, 0);
   padding: 1vmax !important;
 }
 
 .MuiDataGrid-columnHeader div {
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   font: 500 1.1vmax "Roboto" !important;
 }
 

@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom'
 import ProductCard from "./ProductCard";
 import { getAllProduct,clearErrors } from '../../actions/productActions'
 import Load from "../Layout/Loader/Loader";
+import Slider from "../Layout/Carousel/Slider";
 
 
 
@@ -52,10 +53,11 @@ const Home = () => {
             >
               <a href="#container">
                 <button className="Scroll">
-                  Scroll <CgMouse />
+                  Explore <CgMouse />
                 </button>
               </a>
             </BannerH>
+            {/* <Slider/> */}
           </div>
 
           {/* < title="SHOPSTUDIO" /> */}

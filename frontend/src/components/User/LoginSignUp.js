@@ -49,6 +49,7 @@ import { useNavigate } from "react-router-dom";
 
 // import Icon from "./icon";
 import useStyles from "./styles";
+import './LoginSign.css'
 import Input from "./Input";
 import { useDispatch } from "react-redux";
 import {
@@ -64,6 +65,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 // import { GoogleLogin } from "react-google-login";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import { useGoogleOneTapLogin } from "@react-oauth/google";
+import LockIcon from "@mui/icons-material/Lock";
 
 import {
   GOOGLE_LOGIN_SUCCESS
@@ -199,10 +201,8 @@ const LoginSignup = () => {
       <Paper className={classes.paper} elevation={3}>
         <Avatar className={classes.avatar}>
           {/* <LockOutlinedIcon /> */}
-          <Typography> Icon</Typography>
+          <LockIcon className={classes.icon} />
         </Avatar>
-
-        
 
         <Typography component="h1" variant="h5">
           {isSignup ? "Sign up" : "Sign in"}
@@ -286,6 +286,7 @@ const LoginSignup = () => {
                   label="Password"
                   handleChange={handleChangeP}
                   type={showPassword ? "text" : "password"}
+                  handleShowPassword={handleShowPassword}
                 />
               </>
             )}
@@ -294,10 +295,27 @@ const LoginSignup = () => {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
             className={classes.submit}
           >
             {isSignup ? "Sign Up" : "Sign In"}
+          </Button>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            className={classes.submit}
+          >
+            <div className="google">
+              {GoogleLogin({
+                onSuccess: (credentialResponse) => {
+                  console.log(credentialResponse);
+                  googleSuccess(credentialResponse);
+                },
+                onError: () => {
+                  console.log("Login Failed");
+                },
+              })}
+            </div>
           </Button>
 
           <Grid container justify="flex-end">
@@ -311,17 +329,7 @@ const LoginSignup = () => {
           </Grid>
         </form>
       </Paper>
-      <div>
-        {useGoogleOneTapLogin({
-          onSuccess: (credentialResponse) => {
-            console.log(credentialResponse);
-            googleSuccess(credentialResponse);
-          },
-          onError: () => {
-            console.log("Login Failed");
-          },
-        })}
-      </div>
+      <div></div>
     </Container>
   );
 };

@@ -10,6 +10,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import SideBar from "./Sidebar";
 import { getAllUsers, clearErrors, deleteUser } from "../../actions/userAction";
 import { DELETE_USER_RESET } from "../../constants/userConstant";
+
 import './ProductList.css'
 
 const UsersList = () => {
@@ -18,38 +19,28 @@ const UsersList = () => {
   const alert = useAlert();
   const navigate=useNavigate();
 
-  const { error, users } = useSelector((state) => state.allUsers);
+  const {  users } = useSelector((state) => state.allUsers);
 
   const {
-    error: deleteError,
+    // error: deleteError,
     isDeleted,
     message,
-  } = useSelector((state) => state.profile);
-
-  const deleteUserHandler = (id) => {
-    dispatch(deleteUser(id));
-  };
-
-  useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch(clearErrors());
-    }
-
-    if (deleteError) {
-      alert.error(deleteError);
-      dispatch(clearErrors());
-    }
-
-    if (isDeleted) {
-      alert.success(message);
-      navigate("/admin/users");
-      dispatch({ type: DELETE_USER_RESET });
-    }
-
+  } = useSelector((state) => state.profileR);
+const deleteUserHandler = (id) => {
+  dispatch(deleteUser(id));
+};
+  useEffect(()=>{
+      
+      if (isDeleted) {
+        alert.success(message);
+        navigate("/admin/users");
+        dispatch({ type: DELETE_USER_RESET });
+      }
     dispatch(getAllUsers());
-  }, [dispatch, alert, error, deleteError, isDeleted, message]);
 
+  },[dispatch])
+
+  
   const columns = [
     { field: "id", headerName: "User ID", minWidth: 180, flex: 0.8 },
 
@@ -96,7 +87,8 @@ const UsersList = () => {
             <Button
               onClick={() =>
                 deleteUserHandler(params.getValue(params.id, "id"))
-              }
+                 
+                }
             >
               <DeleteIcon />
             </Button>

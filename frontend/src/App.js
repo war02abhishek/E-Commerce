@@ -46,6 +46,9 @@ import OrderDetails from "./components/Order/OrderDetails.js";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Dashboard from "./components/Admin/Dashboard.js";
 import UsersList from "./components/Admin/UserList.js";
+import OrderList from "./components/Admin/OrderList.js";
+import ProductList from "./components/Admin/ProductList.js";
+import NewProduct from "./components/Admin/NewProduct.js";
 
 function App() {
   console.log("App.js");
@@ -134,7 +137,12 @@ function App() {
           {/* <Route path="/password/update" element={<ChangePass />} />
       <Route path="/login?redirect=shipping" element={<ChangePass />} /> */}
           <Route path="/dashboard" element={<Dashboard />} />
-          {/* <Route path="/admin/users" element={<UsersList/>} /> */}
+          <Route path="/admin/users" element={<UsersList/>} />
+          <Route path="/admin/orders" element={<OrderList/>} />
+            <Route path="admin/product" element={<NewProduct/>}/>
+          <Route path="/admin/products" element={<ProductList/>}/>
+
+        
         </Routes>
 
         <Footer />

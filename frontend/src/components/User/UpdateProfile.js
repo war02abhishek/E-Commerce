@@ -93,7 +93,7 @@ const UpdateProfile = () => {
                   <FaceIcon />
                   <input
                     type="text"
-                    placeholder="Name"
+                    placeholder="FirstName"
                     required
                     name="firstName"
                     // value={user?.firstName}
@@ -105,7 +105,7 @@ const UpdateProfile = () => {
 
                   <input
                     type="text"
-                    placeholder="Name"
+                    placeholder="LastName"
                     required
                     name="lastName"
                     onChange={(e) =>

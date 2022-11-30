@@ -37,7 +37,7 @@ const ProductDetail = () => {
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
-  
+ 
   const { success, error: reviewError } = useSelector(
     (state) => state.newReviewReducer
   );
